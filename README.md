@@ -1,9 +1,9 @@
-# MetaWorm
+# BAAIWorm
 
-Welcome to MetaWorm, an **integrative data-driven model of *C. elegans***, linking brain, body and environment to faithfully replicate *C. elegans* locomotion behavior.   
-For a comprehensive introduction to MetaWorm, please refer to our paper available at [bioRxiv](https://www.biorxiv.org/content/10.1101/2024.02.22.581686v2).
+Welcome to BAAIWorm, an **integrative data-driven model of *C. elegans***, linking brain, body and environment to faithfully replicate *C. elegans* locomotion behavior.   
+For a comprehensive introduction to BAAIWorm, please refer to our paper available at [bioRxiv](https://www.biorxiv.org/content/10.1101/2024.02.22.581686v2).
 <div align="center">
-  <img src="https://github.com/Jessie940611/MetaWorm/blob/main/img/MetaWorm_overview.png">
+  <img src="https://github.com/Jessie940611/BAAIWorm/blob/main/img/MetaWorm_overview.png">
 </div>
 
 
@@ -21,10 +21,10 @@ For a comprehensive introduction to MetaWorm, please refer to our paper availabl
 * [License](#license)  
 
 ## Background
-The behavior of an organism is profoundly influenced by the complex interplay between its brain, body, and environment. Existing data-driven models focusing on either the brain or the body-environment separately. A model that integrates these two components is yet to be developed. Here, we present MetaWorm, an integrative data-driven model of a widely studied organism, *C. elegans*. This model consists of two sub-models: the brain model and the body & environment model. The brain model was built by multi-compartment models with realistic morphology, connectome, and neural population dynamics based on experimental data. Simultaneously, the body & environment model employed a lifelike body and a 3D physical environment, facilitating easy behavior quantification. Through the closed-loop interaction between two sub-models, MetaWorm faithfully reproduced the realistic zigzag movement towards attractors observed in *C. elegans*. Notably, MetaWorm is the first model to achieve seamless integration of detailed brain, body, and environment simulations, enabling unprecedented insights into the intricate relationships between neural structures, neural activities, and behaviors. Leveraging this model, we investigated the impact of neural system structure on both neural activities and behaviors. Consequently, MetaWorm can enhance our understanding of how the brain controls the body to interact with its surrounding environment. 
+The behavior of an organism is profoundly influenced by the complex interplay between its brain, body, and environment. Existing data-driven models focusing on either the brain or the body-environment separately. A model that integrates these two components is yet to be developed. Here, we present BAAIWorm, an integrative data-driven model of a widely studied organism, *C. elegans*. This model consists of two sub-models: the brain model and the body & environment model. The brain model was built by multi-compartment models with realistic morphology, connectome, and neural population dynamics based on experimental data. Simultaneously, the body & environment model employed a lifelike body and a 3D physical environment, facilitating easy behavior quantification. Through the closed-loop interaction between two sub-models, BAAIWorm faithfully reproduced the realistic zigzag movement towards attractors observed in *C. elegans*. Notably, BAAIWorm is the first model to achieve seamless integration of detailed brain, body, and environment simulations, enabling unprecedented insights into the intricate relationships between neural structures, neural activities, and behaviors. Leveraging this model, we investigated the impact of neural system structure on both neural activities and behaviors. Consequently, BAAIWorm can enhance our understanding of how the brain controls the body to interact with its surrounding environment. 
 
 ## System Requirements
-To ensure optimal performance and compatibility, we recommend installing and running MetaWorm on Ubuntu. Below are the tested specifications:   
+To ensure optimal performance and compatibility, we recommend installing and running BAAIWorm on Ubuntu. Below are the tested specifications:   
 - OS: Ubuntu 20.04    
 - GPU: Nvidia 3090     
 - CUDA: 11.4  
@@ -35,7 +35,7 @@ To ensure optimal performance and compatibility, we recommend installing and run
 ### Get code
 ```
 sudo apt install git
-git clone https://github.com/Jessie940611/MetaWorm.git
+git clone https://github.com/Jessie940611/BAAIWorm.git
 ```
 ### C++ 
 #### Basic C++ library
@@ -67,7 +67,7 @@ The folder `build2` is a reference for your `build` folder.
 ### Python
 #### change build path in `worm_in_env.py`
 ```
-cd MetaWorm/eworm/ghost_in_mesh_sim/
+cd BAAIWorm/eworm/ghost_in_mesh_sim/
 # change line 3 in worm_in_env.py to add the `build` dir in your PC
 sys.path.append('[directory of build]')
 ```
@@ -77,7 +77,7 @@ pip install -r requirements.txt
 ```
 #### create an NMODL mechanism library
 ```
-cd MetaWorm/eworm/components/mechanism
+cd BAAIWorm/eworm/components/mechanism
 nrnivmodl modfile
 ```
 If you get "Command 'nrnivmodl' not found", find it in `/home/[username]/.local/bin`
@@ -85,20 +85,20 @@ If you get "Command 'nrnivmodl' not found", find it in `/home/[username]/.local/
 Experience the simulation of *C. elegans* movement with our demo.   
 Execute the open-loop simulation of *C. elegans* movement.
 ```
-cd MetaWorm/build
+cd BAAIWorm/build
 ./neuronXcore -data ../eworm/ghost_in_mesh_sim/data/tuned/video_offline/video_offline_neuronX
 ```
 It you get "No module named xxx", try
 ```
-export PYTHONPATH=~/MetaWorm/
+export PYTHONPATH=~/BAAIWorm/
 ```
 Press *space* to play or pause the simulation.
 <div align="center">
-  <img src="https://github.com/Jessie940611/MetaWorm/blob/main/img/GUI.png">
+  <img src="https://github.com/Jessie940611/BAAIWorm/blob/main/img/GUI.png">
 </div>
 
 ## Instructions for Use
-### Modify the Neural Network Model of MetaWorm
+### Modify the Neural Network Model of BAAIWorm
 #### Modify any parameters of the model
 Adjust the parameters of the neural network model by modifying the respective files.
 ```
@@ -119,11 +119,11 @@ If the parameters of single neuron models are unknown, you can used this [tool](
 #### Fitting the neural network data
 The `eworm_learn` file contains code to training the neural network model to fit the target data. The target data can be Preason Correlation Matrix of neurons' membrane potentials, or the Calcium signals of neurons. This training algorithm requires GPUs to run and supports multiple GPUs.   
    
-(If you add or change an ion channel model X, you need to make the correspoding X_lr.mod file in `/MetaWorm/eworm_learn/components/mechanism/modfile/` for training)  
+(If you add or change an ion channel model X, you need to make the correspoding X_lr.mod file in `/BAAIWorm/eworm_learn/components/mechanism/modfile/` for training)  
 
 Create an NMODL mechanism library
 ```
-cd /MetaWorm/eworm_learn
+cd /BAAIWorm/eworm_learn
 nrnivmodl components/mechanism/modfile
 ```
 Train the model
@@ -141,14 +141,14 @@ K_nblock: Transfer impedance matrix division block number; larger values save mo
 ### Modify the interaction between the Neural Network Model and the Body & Environment Model
 #### Train the neural network to control the body
 ```
-cd MetaWorm/eworm/ghost_in_mesh_sim
+cd BAAIWorm/eworm/ghost_in_mesh_sim
 # set parameters in 02_train_cnn.py
 python 02_train_cnn.py
 ```
 #### Run the simulation of *C. elegans* movement
 To run the simulation in GUI and render the neural network model, you need to export the morphological data of your neural network model.
 ```
-cd MetaWorm/eworm/ghost_in_mesh_sim
+cd BAAIWorm/eworm/ghost_in_mesh_sim
 # Set parameters in 03_make_morph.py
 python 03_make_morph.py
 ```
