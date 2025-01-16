@@ -1,7 +1,7 @@
 # BAAIWorm
 
 Welcome to BAAIWorm, an **integrative data-driven model of *C. elegans***, linking brain, body and environment to faithfully replicate *C. elegans* locomotion behavior.   
-For a comprehensive introduction to BAAIWorm, please refer to our paper available at [bioRxiv](https://www.biorxiv.org/content/10.1101/2024.02.22.581686v2).
+For a comprehensive introduction to BAAIWorm, please refer to [our paper](https://www.nature.com/articles/s43588-024-00738-w).
 <div align="center">
   <img src="https://github.com/Jessie940611/BAAIWorm/blob/main/img/MetaWorm_overview.png">
 </div>
@@ -195,3 +195,6 @@ usage: neuronXcore -param PARAM
 ## License
 This project is covered under the Apache 2.0 License.   
 [BAAI](https://www.baai.ac.cn/)
+
+## Q&A
+If you have any questions, feel free to reach out to me at mdzhao@baai.ac.cn
