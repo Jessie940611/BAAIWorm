@@ -196,6 +196,9 @@ usage: neuronXcore -param PARAM
 This project is covered under the Apache 2.0 License.   
 [BAAI](https://www.baai.ac.cn/)
 
+## Acknowledgements
+This work is supported by the National Science and Technology Major Project (No. 2022ZD0116300)
+
 ## Q&A
 If you have any questions, feel free to reach out to me at mdzhao@fudan.edu.cn
 
